@@ -2,7 +2,7 @@
 
 namespace onlineTickets.Models
 {
-    public class Actor
+    public class Producer
     {
         [Key]
         public int id { get; set; }

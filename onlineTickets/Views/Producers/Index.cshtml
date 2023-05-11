@@ -1,14 +1,17 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿// Model
 
-@model IEnumerable<Actor>
+// C# code
+
+//HTML
+
+
+
+
+@model IEnumerable<Producer>
 
 @*Define ViewData*@
 @{
-    ViewData["Title"] = "List of Actors";
+    ViewData["Title"] = "List of Producers";
 }
 
 @*Write code*@
@@ -20,12 +23,12 @@
             <thead>
                 <tr class="text-center">
                     <td>
-                        <th>@Html.DisplayNameFor(model => model.ProfilePictureURL) </th>
-                        <th>@Html.DisplayNameFor(model => model.FullName) </th>
-                        <th>@Html.DisplayNameFor(model => model.Bio) </th>
-                        <th>Actions</th>
-                        
-                    
+                    <th>@Html.DisplayNameFor(model => model.ProfilePictureURL) </th>
+                    <th>@Html.DisplayNameFor(model => model.FullName) </th>
+                    <th>@Html.DisplayNameFor(model => model.Bio) </th>
+                    <th>Actions</th>
+
+
                     </td>
                 </tr>
             </thead>

@@ -14,8 +14,8 @@ namespace onlineTickets.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var allProducts = await _context.Movies.ToListAsync();
-            return View();
+            var allMovies = await _context.Movies.ToListAsync();
+            return View(allMovies);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace onlineTickets.Data.Services
 {
     public interface IActorsService
     {
-        IEnumerable<Actor> GetAll();
+        Task<IEnumerable<Actor>> GetAll();
 
         Actor GetByID(int id);
 

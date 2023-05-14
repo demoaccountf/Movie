@@ -7,9 +7,9 @@ namespace onlineTickets.Data.Services
     {
         private readonly AppDbContext _context;
 
-        public ActorsService(AppDbContext _context)
+        public ActorsService(AppDbContext context)
         {
-            _context = _context;
+            _context = context;
         }
         public void Add(Actor actor)
         {

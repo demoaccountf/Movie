@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using onlineTickets.Data;
 using onlineTickets.Data.Services;
+using onlineTickets.Models;
 
 namespace onlineTickets.Controllers
 {
@@ -22,6 +23,18 @@ namespace onlineTickets.Controllers
         public async Task<IActionResult> Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("FullName, ProfilePictureURL, Bio")]Actor actor)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(actor);
+            }
+
+            _service.Add(actor);
+            return RedirectToAction(nameof(Index));
         }
 
     }

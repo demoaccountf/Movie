@@ -4,11 +4,11 @@ namespace onlineTickets.Data.Services
 {
     public interface IActorsService
     {
-        Task<IEnumerable<Actor>> GetAll();
+        Task<IEnumerable<Actor>> GetAllAsync();
 
-        Actor GetByID(int id);
+        Task<Actor> GetByIDAsync(int id);
 
-        void Add(Actor actor);
+        Task AddAsync(Actor actor);
         Actor Update(int id, Actor newActor);
         void Delete(int id);
     }

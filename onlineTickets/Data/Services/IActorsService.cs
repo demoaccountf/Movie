@@ -6,7 +6,7 @@ namespace onlineTickets.Data.Services
     {
         Task<IEnumerable<Actor>> GetAllAsync();
 
-        Task<Actor> GetByIDAsync(int id);
+        Task<Actor> GetByIdAsync(int id);
 
         Task AddAsync(Actor actor);
         Actor Update(int id, Actor newActor);

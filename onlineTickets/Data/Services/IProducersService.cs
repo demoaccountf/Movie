@@ -3,8 +3,8 @@ using onlineTickets.Models;
 
 namespace onlineTickets.Data.Services
 {
-    public interface IActorsService: IEntityBaseRepository<Actor>
+    public interface IProducersService: IEntityBaseRepository<Producer>
     {
-   
+
     }
 }

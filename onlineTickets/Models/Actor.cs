@@ -1,12 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using onlineTickets.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace onlineTickets.Models
 {
-    public class Actor
+    public class Actor: IEntityBase
     {
         [Key]
         public int id { get; set; }
-
         [Display(Name ="Profile Picture")]
         [Required(ErrorMessage = "Profile Picture is required")]
         public string ProfilePictureURL { get; set; }

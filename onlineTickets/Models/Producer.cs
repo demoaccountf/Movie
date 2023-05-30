@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using onlineTickets.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace onlineTickets.Models
 {
-    public class Producer
+    public class Producer: IEntityBase
     {
         [Key]
         public int id { get; set; }

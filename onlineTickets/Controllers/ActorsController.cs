@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using onlineTickets.Data;
 using onlineTickets.Data.Services;
 using onlineTickets.Models;

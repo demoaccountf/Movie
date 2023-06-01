@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using onlineTickets.Data;
 using onlineTickets.Data.Services;
+using onlineTickets.Models;
 
 namespace onlineTickets.Controllers
 {
@@ -33,8 +34,6 @@ namespace onlineTickets.Controllers
 
             var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
 
-            Console.WriteLine(movieDropdownsData + "movieDropDownsdata ++++++++++++++++");
-
             ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "id", "Name");
             ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "id", "FullName");
             ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "id", "FullName");
@@ -42,6 +41,25 @@ namespace onlineTickets.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        public async Task<IActionResult> Create(NewMovieVM movie)
+        {
+            if (!ModelState.IsValid)
+            {
+                var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
+
+
+                ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "id", "Name");
+                ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "id", "FullName");
+                ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "id", "FullName");
+
+                return View(movie);
+            }
+
+            await _service.AddNewMovieAsync(movie);
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }

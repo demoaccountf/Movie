@@ -57,7 +57,7 @@ namespace onlineTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id ,FullName, ProfilePictureURL, Bio")] Actor actor)
+        public async Task<IActionResult> Edit(int id, [Bind("id ,FullName, ProfilePictureURL, Bio")] Actor actor)
         {
             if (!ModelState.IsValid)
             {

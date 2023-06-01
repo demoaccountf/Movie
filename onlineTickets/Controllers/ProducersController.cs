@@ -9,15 +9,18 @@ namespace onlineTickets.Controllers
     public class ProducersController : Controller
     {
         private readonly IProducersService _service;
+
         public ProducersController(IProducersService service)
         {
             _service = service;
         }
+
         public async Task<IActionResult> Index()
         {
             var allProducers = await _service.GetAllAsync();
             return View(allProducers);
         }
+
         //GET: producers/details/1
         public async Task<IActionResult> Details(int id)
         {
@@ -50,7 +53,7 @@ namespace onlineTickets.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ProfilePictureURL,FullName,Bio")] Producer producer)
+        public async Task<IActionResult> Edit(int id, [Bind("id,ProfilePictureURL,FullName,Bio")] Producer producer)
         {
             if (!ModelState.IsValid) return View(producer);
 
@@ -62,7 +65,7 @@ namespace onlineTickets.Controllers
             return View(producer);
         }
 
-        //GET: producers/delete
+        //GET: producers/delete/1
         public async Task<IActionResult> Delete(int id)
         {
             var producerDetails = await _service.GetByIdAsync(id);
@@ -81,4 +84,3 @@ namespace onlineTickets.Controllers
         }
     }
 }
-

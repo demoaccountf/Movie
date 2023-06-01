@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace onlineTickets.Models
 {
-
     public class Producer : IEntityBase
     {
         [Key]

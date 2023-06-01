@@ -5,12 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace onlineTickets.Models
 {
+
     public class NewMovieVM
     {
-
         [Display(Name = "Movie name")]
         [Required(ErrorMessage = "Name is required")]
-
         public string Name { get; set; }
 
         [Display(Name = "Movie description")]
@@ -21,26 +20,23 @@ namespace onlineTickets.Models
         [Required(ErrorMessage = "Price is required")]
         public double Price { get; set; }
 
-        [Display(Name = "Movie Poster URL")]
-        [Required(ErrorMessage = "Movie Poster URL is required")]
+        [Display(Name = "Movie poster URL")]
+        [Required(ErrorMessage = "Movie poster URL is required")]
         public string ImageURL { get; set; }
 
         [Display(Name = "Movie start date")]
         [Required(ErrorMessage = "Start date is required")]
         public DateTime StartDate { get; set; }
 
-        [Display(Name = "MOvie end date")]
+        [Display(Name = "Movie end date")]
         [Required(ErrorMessage = "End date is required")]
         public DateTime EndDate { get; set; }
 
         [Display(Name = "Select a category")]
         [Required(ErrorMessage = "Movie category is required")]
-        public MovieCategory MovieCategory;
-
-
+        public MovieCategory MovieCategory { get; set; }
 
         //Relationships
-
         [Display(Name = "Select actor(s)")]
         [Required(ErrorMessage = "Movie actor(s) is required")]
         public List<int> ActorIds { get; set; }
@@ -52,6 +48,5 @@ namespace onlineTickets.Models
         [Display(Name = "Select a producer")]
         [Required(ErrorMessage = "Movie producer is required")]
         public int ProducerId { get; set; }
-       
     }
 }

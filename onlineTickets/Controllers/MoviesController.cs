@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using onlineTickets.Data;
 using onlineTickets.Data.Services;
@@ -28,11 +29,19 @@ namespace onlineTickets.Controllers
 
         // GET: Movies/Create
 
-        public IActionResult Create() {
+        public async Task<IActionResult> Create() {
 
-            ViewData["Welcome"] = "Welcome to our store";
-            ViewBag.Description = "This is the store description";
+            var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
+
+            Console.WriteLine(movieDropdownsData + "movieDropDownsdata ++++++++++++++++");
+
+            ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "id", "Name");
+            ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "id", "FullName");
+            ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "id", "FullName");
+
             return View();
         }
+
+
     }
 }

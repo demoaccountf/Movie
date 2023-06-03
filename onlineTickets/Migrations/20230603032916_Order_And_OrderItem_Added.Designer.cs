@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using onlineTickets.Data;
 
@@ -11,9 +12,11 @@ using onlineTickets.Data;
 namespace onlineTickets.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230603032916_Order_And_OrderItem_Added")]
+    partial class Order_And_OrderItem_Added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -208,31 +211,6 @@ namespace onlineTickets.Migrations
                     b.ToTable("Producers");
                 });
 
-            modelBuilder.Entity("onlineTickets.Models.ShoppingCartItem", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Movieid")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ShoppingCartId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.HasIndex("Movieid");
-
-                    b.ToTable("ShoppingCartItems");
-                });
-
             modelBuilder.Entity("onlineTickets.Models.Actor_Movie", b =>
                 {
                     b.HasOne("onlineTickets.Models.Actor", "Actor")
@@ -288,17 +266,6 @@ namespace onlineTickets.Migrations
                     b.Navigation("Movie");
 
                     b.Navigation("Order");
-                });
-
-            modelBuilder.Entity("onlineTickets.Models.ShoppingCartItem", b =>
-                {
-                    b.HasOne("onlineTickets.Models.Movie", "Movie")
-                        .WithMany()
-                        .HasForeignKey("Movieid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("onlineTickets.Models.Actor", b =>

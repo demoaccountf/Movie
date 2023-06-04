@@ -29,5 +29,31 @@ namespace onlineTickets.Controllers
 
             return View(response);
         }
+
+        public async Task <IActionResult> AddItemToShoppingCart(int id)
+        {
+            var item = await _moviesService.GetMovieByIdAsync(id);
+
+            if(item != null)
+            {
+                _shoppingCart.AddItemToCart(item);
+
+            }
+
+            return RedirectToAction(nameof(ShoppingCart));
+        }
+
+        public async Task<IActionResult> RemoveItemFromShoppingCart(int id)
+        {
+            var item = await _moviesService.GetMovieByIdAsync(id);
+
+            if (item != null)
+            {
+                _shoppingCart.RemoveItemFromCart(item);
+
+            }
+
+            return RedirectToAction(nameof(ShoppingCart));
+        }
     }
 }

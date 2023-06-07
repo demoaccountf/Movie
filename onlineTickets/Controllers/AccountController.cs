@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using onlineTickets.Data;
+using onlineTickets.Data.ViewModels;
 using onlineTickets.Models;
 
 namespace onlineTickets.Controllers
@@ -17,9 +18,7 @@ namespace onlineTickets.Controllers
             _signInManager = signInManager;
             _context = context;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Login() => View(new LoginVM());
+        
     }
 }

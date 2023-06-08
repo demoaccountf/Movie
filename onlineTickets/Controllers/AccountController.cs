@@ -45,6 +45,9 @@ namespace onlineTickets.Controllers
 
             
         }
-        
+
+        public IActionResult Register() => View(new RegisterVM());
+
+
     }
 }

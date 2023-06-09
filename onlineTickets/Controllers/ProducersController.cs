@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using onlineTickets.Data;
 using onlineTickets.Data.Services;
@@ -6,6 +7,7 @@ using onlineTickets.Models;
 
 namespace onlineTickets.Controllers
 {
+    [Authorize]
     public class ProducersController : Controller
     {
         private readonly IProducersService _service;
@@ -15,6 +17,7 @@ namespace onlineTickets.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var allProducers = await _service.GetAllAsync();
@@ -22,6 +25,7 @@ namespace onlineTickets.Controllers
         }
 
         //GET: producers/details/1
+        [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
             var producerDetails = await _service.GetByIdAsync(id);

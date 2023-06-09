@@ -331,7 +331,7 @@ namespace onlineTickets.Data
 
                 //Users
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-                string adminUserEmail = "admin23@etickets.com";
+                string adminUserEmail = "admin@etickets.com";
 
                 var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
 
@@ -345,7 +345,7 @@ namespace onlineTickets.Data
                         EmailConfirmed = true,
                     };
 
-                    await userManager.CreateAsync(newAdminUser, "Coding@12345?");
+                    await userManager.CreateAsync(newAdminUser, "Coding@1234?");
                     await userManager.AddToRoleAsync(newAdminUser, UserRoles.Admin);
 
                 }

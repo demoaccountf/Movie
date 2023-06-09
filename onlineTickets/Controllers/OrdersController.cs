@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using onlineTickets.Data.Cart;
 using onlineTickets.Data.Services;
+using onlineTickets.Data.Static;
 using onlineTickets.Data.ViewModels;
 using System.Security.Claims;
 
@@ -77,6 +78,11 @@ namespace onlineTickets.Controllers
             await _ordersService.StoreOrderAsync(items, userId, userEmailAddress);
             await _shoppingCart.ClearShoppingCartAsync();
             return View("OrderCompleted");
+        }
+
+        public IActionResult AccessDenied(string ReturnUrl)
+        {
+            return View(ReturnUrl);
         }
     }
 }

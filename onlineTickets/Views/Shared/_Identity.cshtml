@@ -19,38 +19,106 @@
 else
 {
     <!-- TODO: NEED TO FIX HERE. NAVBAR BUTTON DOES NOT WORK -->
-    @*User profile section*@
+    @*User profile section
     <div class="dropdown">
         <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
                 aria-expanded="false">
             <i class="bi bi-person-badge"></i> Hello @UserManager.GetUserName(User)
         </button>
-        <ul class="dropdown-menu" aria-labelledby="profile-btn">
+        <ul class="navbar-nav dropdown-menu" aria-labelledby="profile-btn">
             <li class="nav-item dropdown">
                 <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
                     <i class="bi bi-list"></i> Orders
                 </a>
             </li>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <li class="nav-item dropdown">
+                    <a class="dropdown-item" asp-controller="Account" asp-action="Users">
+                        <i class="bi bi-people"></i> Users
+                    </a>
+                </li>
+            }
+
+
         </ul>
 
-        <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Movies" asp-action="Index"><i class="bi bi-film"></i> Movies</a>
-            </li>
 
+
+
+    <div class="dropdown">
+        <button class="btn btn-outline-success dropdown-toggle" type="button" id="profile-btn" data-toggle="dropdown"
+                aria-expanded="false">
+            <i class="bi bi-person-badge"></i> Hello @UserManager.GetUserName(User)
+        </button>
+        <ul class="navbar-nav dropdown-menu" aria-labelledby="profile-btn">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="badge-info bi-gear"></i> Management
+                <a class="dropdown-item" asp-controller="Orders" asp-action="Index">
+                    <i class="bi bi-list"></i> Orders
                 </a>
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" asp-controller="Cinemas" asp-action="Index"><i class="bi bi-camera-reels"></i> Cinemas</a>
-                    <a class="dropdown-item" asp-controller="Producers" asp-action="Index"><i class="bi bi-headset"></i> Producers</a>
-                    <a class="dropdown-item" asp-controller="Actors" asp-action="Index"><i class="bi bi-person-square"></i> Actors</a>
-                </div>
             </li>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <li class="nav-item dropdown">
+                    <a class="dropdown-item" asp-controller="Account" asp-action="Users">
+                        <i class="bi bi-people"></i> Users
+                    </a>
+                </li>
+            }
+
+
         </ul>
-    </div>
+          *@
+
+          @*  
+
+    <ul class="navbar-nav flex-grow-1">
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profile-btn" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-person-badge"></i> Hello @UserManager.GetUserName(User)
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="profile-btn">
+                <a class="dropdown-item" asp-controller="Orders" asp-action="Index"><i class="bi bi-camera-reels"></i> Orders</a>
+            </div>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <div class=" dropdown-menu" aria-labelledby="profile-btn">
+                    <a class="dropdown-item" asp-controller="Account" asp-action="Users">
+                        <i class="bi bi-people"></i> Users
+                    </a>
+                </div>
+            }
+        </li>
+
+
+    </ul>
+    *@
+
+    <ul class="navbar-nav flex-grow-1">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="profile-btn" role="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bi bi-person-badge"></i> Hello @UserManager.GetUserName(User)
+            </a>
+            <div class="dropdown-menu" aria-labelledby="profile-btn">
+                <a class="dropdown-item" asp-controller="Orders" asp-action="Index"><i class="bi bi-camera-reels"></i> Orders</a>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a class="dropdown-item" asp-controller="Account" asp-action="Users">
+                        <i class="bi bi-people"></i> Users
+                    </a>
+                }
+            </div>
+        </li>
+    </ul>
+
+
 
     <span style="padding: 5px;"></span>
 

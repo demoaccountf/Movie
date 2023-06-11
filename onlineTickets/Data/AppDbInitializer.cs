@@ -191,7 +191,7 @@ namespace onlineTickets.Data
                             Price = 39.50,
                             ImageURL = "http://dotnethow.net/images/movies/movie-7.jpeg",
                             StartDate = DateTime.Now.AddDays(-10),
-                            EndDate = DateTime.Now.AddDays(-2),
+                            EndDate = DateTime.Now.AddDays(200),
                             CinemaId = 1,
                             ProducerId = 3,
                             MovieCategory = MovieCategory.Cartoon

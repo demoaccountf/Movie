@@ -1,6 +1,8 @@
-# eCommerce Application
+# onlineTickets eCommerce Application
 
 This is a full-stack eCommerce application developed using ASP.NET MVC. It provides comprehensive CRUD (Create, Read, Update, Delete) functionality for managing products, orders, and customers. The application is designed to facilitate a seamless online shopping experience.
+
+https://onlinetickets-app.azurewebsites.net/
 
 ## Features
 
